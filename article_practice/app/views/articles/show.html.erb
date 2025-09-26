@@ -1,0 +1,8 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.content %></p>
+
+<%= link_to '編集', edit_article_path(@article) %> |
+<%= link_to '一覧へ戻る', articles_path %> |
+
+
+<%= button_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に削除しますか？' } %>
