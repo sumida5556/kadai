@@ -1,0 +1,19 @@
+<h2>投稿一覧</h2>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <p><%= truncate(post.comment, length: 200) %></p>
+    <p>投稿者: <%= post.user.name %></p>
+    <p>
+      <% if user_signed_in? %>
+        <% if post.favorited_users.include?(current_user) %>
+          <%= button_to "お気に入り解除", post_favorite_path(post, post.favorites.find_by(user: current_user)), method: :delete %>
+        <% else %>
+          <%= button_to "お気に入り", post_favorites_path(post), method: :post %>
+        <% end %>
+        （<%= post.favorites.count %>）
+      <% end %>
+    </p>
+  </div>
+<% end %>

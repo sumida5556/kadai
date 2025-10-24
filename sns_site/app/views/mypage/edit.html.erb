@@ -1,0 +1,17 @@
+<h2>プロフィール編集</h2>
+
+<%= form_with model: current_user, url: mypage_path, method: :patch, local: true do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :content, "自己紹介" %><br>
+    <%= f.text_area :content %>
+  </div>
+
+  <div>
+    <%= f.submit "更新" %>
+  </div>
+<% end %>

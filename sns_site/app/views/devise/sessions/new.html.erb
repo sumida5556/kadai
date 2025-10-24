@@ -1,0 +1,17 @@
+<h2>ログイン</h2>
+
+<%= form_with(model: resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, autofocus: true %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </p>
+
+  <p>
+    <%= f.submit "ログイン" %>
+  </p>
+<% end %>

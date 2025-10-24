@@ -1,0 +1,17 @@
+<h2><%= @post.title %></h2>
+<p><%= simple_format(@post.comment) %></p>
+<p>投稿者: <%= @post.user.name %></p>
+
+<% if user_signed_in? %>
+  <% if @post.favorited_users.include?(current_user) %>
+    <%= button_to "お気に入り解除", post_favorite_path(@post, @post.favorites.find_by(user: current_user)), method: :delete %>
+  <% else %>
+    <%= button_to "お気に入り", post_favorites_path(@post), method: :post %>
+  <% end %>
+  （<%= @post.favorites.count %>）
+<% end %>
+
+<% if user_signed_in? && @post.user == current_user %>
+  <%= link_to "編集", edit_post_path(@post) %> |
+  <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "本当に削除しますか?" } %>
+<% end %>

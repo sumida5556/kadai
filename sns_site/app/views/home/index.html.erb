@@ -1,0 +1,14 @@
+<h2>トップ</h2>
+
+<% if @posts.present? %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <%= link_to post.title, post_path(post) %>
+        by <%= post.user&.name || "Unknown" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>まだ投稿がありません</p>
+<% end %>
