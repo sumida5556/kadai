@@ -1,0 +1,7 @@
+<h1>トップページ</h1>
+
+<% if user_signed_in? %>
+  <p><%= link_to "マイページへ", mypage_path %></p>
+  <p><%= link_to "サインアップ", new_user_registration_path %></p>
+  <p><%= link_to "ログイン", new_user_session_path %></p>
+<% end %>
