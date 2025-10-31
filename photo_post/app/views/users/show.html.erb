@@ -1,0 +1,13 @@
+<h1><%= current_user.name %>さんのマイページ</h1>
+
+<% if current_user.icon.attached? %>
+  <%= image_tag current_user.icon.variant(resize_to_fill: [600, 600]) %>
+<% else %>
+  <%= image_tag "NoImage.png", size: "600x600" %>
+<% end %>
+
+<p>
+  <%= link_to "投稿一覧", posts_path %><br>
+  <%= link_to "ユーザ情報編集", edit_user_path(current_user) %><br>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+</p>

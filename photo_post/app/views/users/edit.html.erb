@@ -1,0 +1,7 @@
+<h1>ユーザ情報編集</h1>
+
+<%= form_with model: @user, local: true do |f| %>
+  <p>名前<br><%= f.text_field :name %></p>
+  <p>アイコン画像<br><%= f.file_field :icon %></p>
+  <%= f.submit "更新" %>
+<% end %>

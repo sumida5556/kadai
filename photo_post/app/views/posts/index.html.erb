@@ -1,0 +1,13 @@
+<h1>投稿一覧</h1>
+
+<%= link_to "新規投稿", new_post_path %><br><br>
+
+<% @posts.each do |post| %>
+  <div>
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <% if post.image.attached? %>
+      <%= image_tag post.image.variant(resize_to_fill: [300, 300]) %>
+    <% end %>
+    <p><%= truncate(post.content, length: 50) %></p>
+  </div>
+<% end %>
