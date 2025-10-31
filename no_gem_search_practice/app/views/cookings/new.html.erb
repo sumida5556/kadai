@@ -1,0 +1,19 @@
+<h1>新規料理登録</h1>
+
+<%= form_with model: @cooking, local: true do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.label :genre_id, "ジャンル" %><br>
+    <%= f.collection_select(:genre_id, @genres, :id, :genre_name, include_blank: "選択して下さい") %>
+  </p>
+  <%= f.submit "登録" %>
+<% end %>
+
+<%= link_to "料理一覧に戻る", cookings_path %>

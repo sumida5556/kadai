@@ -1,0 +1,11 @@
+<h1>新規ジャンル登録</h1>
+
+<%= form_with model: @genre, local: true do |f| %>
+  <p>
+    <%= f.label :genre_name, "ジャンル名" %><br>
+    <%= f.text_field :genre_name %>
+  </p>
+  <%= f.submit "登録" %>
+<% end %>
+
+<%= link_to "料理一覧に戻る", cookings_path %>
