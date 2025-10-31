@@ -1,0 +1,13 @@
+<h1>ユーザ一覧</h1>
+
+<%= search_form_for @q, url: mypages_path do |f| %>
+  <%= f.label :name_cont, "名前検索" %>
+  <%= f.search_field :name_cont %>
+  <%= f.submit "検索" %>
+<% end %>
+
+<% @users.each do |user| %>
+  <p><%= user.name %>（<%= user.email %>）</p>
+<% end %>
+
+<%= link_to "投稿一覧へ戻る", posts_path %>
